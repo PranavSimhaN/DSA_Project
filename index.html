@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Tile Grid</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body class="path">
+	<div class="grid-container"></div>
+	<script>
+		const gridContainer = document.querySelector('.grid-container');
+		const width = gridContainer.offsetWidth;
+		const height = width * 15 / 37; // Set height to be 15/37 of the width
+	
+		gridContainer.style.height = `${height}px`; // Set the height of the container using the style property
+	</script>
+
+	<div class="bottom-container">
+		<div class="container">
+			<div class="algorithm-container">
+				<div class="button-container">
+					<button class="alg-buttons" onclick="bfs()">BFS</button>
+					<button class="alg-buttons" onclick="dfs()">DFS</button>
+				</div>
+				<div class="button-container">
+					<button class="alg-buttons" onclick="dijkstra('euclidean')">Dijkstra Euclidean</button>
+					<button class="alg-buttons" onclick="dijkstra('manhattan')">Dijkstra Manhattan</button>
+				</div>
+				<div class="button-container">
+					<button class="alg-buttons" onclick="aStar('euclidean')">A* Euclidean</button>
+					<button class="alg-buttons" onclick="aStar('manhattan')">A* Manhattan</button>
+				</div>
+				<div class="button-container">
+					<button class="alg-buttons" onclick="greedyBFS('euclidean')">Greedy BFS Euclidean</button>
+					<button class="alg-buttons" onclick="greedyBFS('manhattan')">Greedy BFS Manhattan</button>
+				</div>
+			</div>
+			<div class="main-button-container">
+				<div class="tile-button-container">
+					<div class="tile-button-icons">
+						<button class="tilebut1" onclick="changeColor('green')">Start Tile</button>
+						<button class="tilebut2" onclick="changeColor('red')">End Tile</button>
+						<button class="tilebut3" onclick="changeColor('black')">Wall Tile</button>
+					</div>
+				</div>
+			</div>
+			<div class="maze-random-container">
+				<div class="maze-reset">
+					<div class="maze-button">
+						<button class="alg-buttons" onclick="maze()">Create Maze</button>
+					</div>
+					<div class="reset-button">
+						<button class="alg-buttons" onclick="reset()">Reset</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<div class="info" id="info">
+		<div class="page1">
+			
+			<div class="info-body">
+				
+				<div class="right-side-container">
+					<div class="part1-gif-container">
+						<img class="part1-gif" src="videos/part1.gif" alt="animated GIF">
+					</div>
+					<div class="info-footer-page2">
+						<button class="alg-buttons" onclick="togglePages()">Advanced Features --></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page2" id="advanced-info" style="display: none;">
+			<div class="info-header">
+				<div class="info-title">Advanced Features</div>
+				<button data-close-button class="close-button">&times;</button>
+			</div>
+			<div class="info-body">
+				<div class="right-side-container">
+					<img class="part2-gif" src="videos/part2.gif" alt="animated GIF">
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div id="overlay"></div>
+	<script src="js/index.js"></script>
+	
+</body>
+</html>
